@@ -10,16 +10,14 @@ public class EnemyContactDamage : MonoBehaviour
 
     float lastDamageTime;
 
-void OnCollisionStay2D(Collision2D col)
-{
-    Debug.Log($"[ECD] OnCollisionStay2D with {col.collider.name}");
-    if (col.collider.CompareTag("Player") &&
-        Time.time >= lastDamageTime + damageInterval &&
-        col.collider.TryGetComponent<Health>(out var hp))
+    void OnCollisionStay2D(Collision2D col)
     {
-        hp.TakeDamage(contactDamage);
-        lastDamageTime = Time.time;
-        Debug.Log($"[ECD] Damaged Player, new HP = {hp.Normalized * hp.maxHP}");
+        if (col.collider.CompareTag("Player") &&
+            Time.time >= lastDamageTime + damageInterval &&
+            col.collider.TryGetComponent<Health>(out var hp))
+        {
+            hp.TakeDamage(contactDamage);
+            lastDamageTime = Time.time;
+        }
     }
-}
 }

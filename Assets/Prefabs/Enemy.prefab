@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.59, y: -0.56, z: 0}
-  m_LocalScale: {x: 0.70771617, y: 0.70771617, z: 0.70771617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5177692422013737028}
@@ -129,8 +129,8 @@ MonoBehaviour:
     prefab: {fileID: 0}
     amount: 0
   - type: 0
-    weight: 1
-    prefab: {fileID: 0}
+    weight: 0.873
+    prefab: {fileID: 8415839197689010070, guid: 8ce0fb067645b724b991ace0d8c33a02, type: 3}
     amount: 1
   - type: 0
     weight: 0
@@ -149,11 +149,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42edfe09970a7db4fa0fd5ece60cf933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
+  circleSpeed: 10
+  dashSpeed: 25
   rotationSpeed: 360
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
+  chaseRange: 10
+  rangedRange: 15
+  dashCooldown: 3
+  fleeThreshold: 0
+  circleThreshold: 0.551
+  circleDuration: 2
+  projectilePrefab: {fileID: 8703700545851970186, guid: 7d07b357c50d33e48b231cc9e3c6d81b, type: 3}
+  fireInterval: 2
+  projectileSpeed: 6
 --- !u!114 &8707321971047967220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d70dd29465c82f4abff52c35c9c35c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
-  onDamage:
+  maxHP: 6
+  onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
   onDeath:

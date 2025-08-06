@@ -26,19 +26,19 @@ public class HPBarController : MonoBehaviour
         // 1) Basic null checks
         if (pipTemplate == null)
         {
-            Debug.LogError("HPBarController: pipTemplate is not assigned!", this);
+            Debug.LogError("Pip Template is not assigned in HPBarController!");
             return;
         }
         if (playerHealth == null && maxHPOverride <= 0)
         {
-            Debug.LogError("HPBarController: no playerHealth and no maxHPOverride!", this);
+            Debug.LogError("Player Health is not assigned, and Max HP Override is not set in HPBarController!");
             return;
         }
 
         // 2) Figure out how many pips
         int maxHP = (maxHPOverride > 0) 
             ? maxHPOverride 
-            : playerHealth.maxHP;
+            : Mathf.CeilToInt(playerHealth.maxHP);
 
         // 3) Prepare array & hide the original
         pips = new Image[maxHP];
@@ -79,5 +79,36 @@ public class HPBarController : MonoBehaviour
         // 8) Toggle them on/off
         for (int i = 0; i < pips.Length; i++)
             pips[i].enabled = (i < toShow);
+    }
+
+    void OnEnable()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.onHealthChanged.AddListener(UpdatePips);
+        }
+    }
+
+    void OnDisable()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.onHealthChanged.RemoveListener(UpdatePips);
+        }
+    }
+
+    void UpdatePips()
+    {
+        // Clear existing pips
+        foreach (var pip in pips)
+        {
+            if (pip != null)
+            {
+                Destroy(pip.gameObject);
+            }
+        }
+
+        // Reinitialize pips
+        Start();
     }
 }

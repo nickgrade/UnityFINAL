@@ -20,7 +20,12 @@ public class DoorController : MonoBehaviour
             OpenDoor();
     }
 
-    void OpenDoor()
+    public void TriggerOpenDoor()
+    {
+        OpenDoor();
+    }
+
+    private void OpenDoor()
     {
         // 1) Remove collision
         Destroy(GetComponent<Collider2D>());
@@ -34,5 +39,23 @@ public class DoorController : MonoBehaviour
         // gameObject.SetActive(false);
 
         // … your open-door VFX here …
+    }
+
+    public void CloseDoor()
+    {
+        // Re-enable collision
+        if (GetComponent<Collider2D>() == null)
+        {
+            gameObject.AddComponent<BoxCollider2D>();
+        }
+
+        // Show the visual(s)
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.enabled = true;
+
+        // Optionally, re-enable the entire GameObject
+        // gameObject.SetActive(true);
+
+        // … your close-door VFX here …
     }
 }

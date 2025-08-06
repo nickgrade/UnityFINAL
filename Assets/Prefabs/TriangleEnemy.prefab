@@ -100,10 +100,10 @@ GameObject:
   - component: {fileID: 6545615304854235058}
   - component: {fileID: 5506168637959258629}
   - component: {fileID: 7304614406829756663}
-  - component: {fileID: 4409187581260026185}
+  - component: {fileID: 39465526200402705}
   m_Layer: 9
   m_Name: TriangleEnemy
-  m_TagString: Enemy
+  m_TagString: waveEnemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.648, y: -0.554, z: 0}
-  m_LocalScale: {x: 1.256877, y: 1.256877, z: 1.256877}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4155376416355006808}
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.9811321, g: 0.023139905, b: 0.94497174, a: 1}
+  m_Color: {r: 0.56884766, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d70dd29465c82f4abff52c35c9c35c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
-  onDamage:
+  maxHP: 6
+  onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
   onDeath:
@@ -248,13 +248,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d6be53beae0564cb8886892e2f10ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  rotationSpeed: 180
-  spinAttackInterval: 5
-  spinUpDuration: 1
+  moveSpeed: 6
+  rotationSpeed: 360
+  spinAttackInterval: 3
+  spinUpDuration: 1.25
   spinRotationSpeed: 720
-  chargeSpeed: 25
-  chargeDuration: 1
+  chargeSpeed: 30
+  chargeDuration: 1.5
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22964bba1bb09a4493d2fc9a0f5e80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 0.5
-  knockbackDuration: 0.15
+  knockbackForce: 0.01
+  knockbackDuration: 0.1
 --- !u!114 &7304614406829756663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactDamage: 1
   damageInterval: 0.5
---- !u!61 &4409187581260026185
-BoxCollider2D:
+--- !u!60 &39465526200402705
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -328,6 +328,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5773587}
+      - {x: -0.5, y: -0.28866667}
+      - {x: 0.5, y: -0.28866667}
+  m_UseDelaunayMesh: 0

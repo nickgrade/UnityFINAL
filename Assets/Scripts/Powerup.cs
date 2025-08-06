@@ -9,28 +9,47 @@ public class Powerup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player"))
+        {
+            Debug.LogWarning("Powerup collided with a non-player object: " + other.name);
+            return;
+        }
+
         var stats = other.GetComponent<PlayerStats>();
-        if (stats == null) return;
+        if (stats == null)
+        {
+            Debug.LogError("PlayerStats component is missing on the Player object!");
+            return;
+        }
 
         switch (type)
         {
             case PowerupType.HealPercent:
-                stats.HealPercent(0.5f); 
+                Debug.Log("Applying HealPercent powerup.");
+                stats.health.RestoreFullHealth(); // Heal to full health
                 break;
             case PowerupType.MaxHealthBoost:
-                stats.AddMaxHealth(amount);
+                Debug.Log("Applying MaxHealthBoost powerup.");
+                stats.health.AddMaxHealth(Mathf.CeilToInt(amount)); // Use AddMaxHealth to update max HP and trigger UI update
+                stats.health.RestoreFullHealth(); // Optionally heal to full
                 break;
             case PowerupType.AttackSpeed:
-                stats.ModifyFireRate(-0.1f * amount);
+                Debug.Log("Applying AttackSpeed powerup.");
+                stats.shooter.fireRate = Mathf.Max(0.05f, stats.shooter.fireRate - 0.1f * amount); // Decrease fire rate
                 break;
             case PowerupType.AttackDamage:
-                stats.ModifyDamage(amount);
+                Debug.Log("Applying AttackDamage powerup.");
+                stats.shooter.bulletDamage += Mathf.CeilToInt(amount); // Increase bullet damage
                 break;
             case PowerupType.BossKey:
-                stats.AddKeys(amount);
+                Debug.Log("Applying BossKey powerup.");
+                stats.AddKeys(Mathf.CeilToInt(amount)); // Add keys
+                break;
+            default:
+                Debug.LogError("Unsupported PowerupType: " + type);
                 break;
         }
+
         Destroy(gameObject);
     }
 }

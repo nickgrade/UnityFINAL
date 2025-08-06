@@ -344,9 +344,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458562169653066813}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.97, y: 2.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5874754004623672640}
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9abb26a85c4c5e4b9cd5f55d7760de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 8
 --- !u!114 &6077763441680261225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   firePoint: {fileID: 8006959311345632120}
   bulletPrefab: {fileID: 8703700545851970186, guid: 8a51b72ae87653c44be05ff0d6da81c1, type: 3}
   fireRate: 0.2
-  bulletDamage: 1
+  bulletDamage: 2
 --- !u!114 &5986991868006479171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,8 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d70dd29465c82f4abff52c35c9c35c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
-  onDamage:
+  maxHP: 20
+  onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
   onDeath:
@@ -559,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 5986991868006479171}
   shooter: {fileID: 6077763441680261225}
+  deathCounterText: {fileID: 0}
+  keyCounterText: {fileID: 0}
   keysCollected: 0
   onKeysChanged:
     m_PersistentCalls:

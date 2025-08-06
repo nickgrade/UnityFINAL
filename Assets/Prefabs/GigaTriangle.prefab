@@ -10,67 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3818591224024630890, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
       propertyPath: maxHP
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 4409187581260026185, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Size.x
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409187581260026185, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Size.y
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409187581260026185, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5506168637959258629, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: knockbackForce
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: moveSpeed
-      value: 3
+    - target: {fileID: 5346596231202601909, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
       propertyPath: chargeSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: rotationSpeed
-      value: 360
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
       propertyPath: chargeDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: spinUpDuration
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: spinRotationSpeed
-      value: 1440
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545615304854235058, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: spinAttackInterval
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7304614406829756663, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: contactDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495643490335300148, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.698125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495643490335300148, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.698125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495643490335300148, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.698125
       objectReference: {fileID: 0}
     - target: {fileID: 7495643490335300148, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,17 +68,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GigaTriangle
       objectReference: {fileID: 0}
-    - target: {fileID: 9203427530405103677, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Color.b
-      value: 0.32941177
-      objectReference: {fileID: 0}
-    - target: {fileID: 9203427530405103677, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9203427530405103677, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 8322394065379765277, guid: 05f21f2e376c5a0489f1fc1c54084a83, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
